@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 import "../index.css";
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_gnanesh",    
+        "template_3yhb0xi",   
+        form.current,
+        "83uv0IvcS4tpke3bP"     
+      )
+      .then(
+        (result) => {
+          alert("✅ Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("❌ Something went wrong: " + error.text);
+        }
+      );
+  };
+
   return (
     <section id="contact" className="section">
       <h1>Get In Touch</h1>
@@ -61,24 +85,24 @@ function Contact() {
         {/* Right Side (Form) */}
         <div className="contact-right-box">
           <h2>Send a Message</h2>
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="form-row">
               <div className="form-group">
                 <label>Your Name</label>
-                <input type="text" placeholder="Enter your name" />
+                <input type="text" name="from_name" placeholder="Enter your name" required />
               </div>
               <div className="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" />
+                <input type="email" name="from_email" placeholder="Enter your email" required />
               </div>
             </div>
             <div className="form-group">
               <label>Subject</label>
-              <input type="text" placeholder="What's this about?" />
+              <input type="text" name="subject" placeholder="What's this about?" required />
             </div>
             <div className="form-group">
               <label>Message</label>
-              <textarea placeholder="Tell me about your project or opportunity..." />
+              <textarea name="message" placeholder="Tell me about your project or opportunity..." required />
             </div>
             <button className="send-btn" type="submit">
               <i className="fas fa-paper-plane"></i> Send Message
