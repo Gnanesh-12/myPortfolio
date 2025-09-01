@@ -32,10 +32,10 @@ function Education() {
           <h3>Grade: 936 / 1000</h3>
           <h3>JEE Mains Percentile - 95.8630053</h3>
           <h4>2021 – 2023</h4>
-          <a href="12th.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="public\12th.pdf" target="_blank" rel="noopener noreferrer">
             <button aria-label="12th Marksheet">Intermediate Marksheet</button>
           </a>
-          <a href = "../assets/JEE.pdf" target="_blank" rel="noopener noreferrer">
+          <a href = "../JEE.pdf" target="_blank" rel="noopener noreferrer">
             <button aria-label="JEE Scorecard">JEE Mains Scorecard</button>
           </a>
         </div>
@@ -51,7 +51,7 @@ function Education() {
           <h2>Class X</h2>
           <h3>Grade: 10.0 / 10.0</h3>
           <h4>2021</h4>
-          <a href="../assets/SSC.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="../SSC.pdf" target="_blank" rel="noopener noreferrer">
             <button aria-label="SSC Marksheet">SSC Marksheet</button>
           </a>
         </div>
