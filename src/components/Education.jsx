@@ -32,7 +32,7 @@ function Education() {
           <h3>Grade: 936 / 1000</h3>
           <h3>JEE Mains Percentile - 95.8630053</h3>
           <h4>2021 – 2023</h4>
-          <a href="..\12th.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="../12th.pdf" target="_blank" rel="noopener noreferrer">
             <button aria-label="12th Marksheet">Intermediate Marksheet</button>
           </a>
           <a href = "../JEE.pdf" target="_blank" rel="noopener noreferrer">
