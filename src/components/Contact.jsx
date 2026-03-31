@@ -99,7 +99,7 @@ function Contact() {
         >
           <h2 style={{ fontSize: "2.5rem", marginBottom: "2rem" }}>Send a Message</h2>
           <form ref={form} onSubmit={sendEmail} style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+            <div className="contact-form-row">
               <div className="form-group">
                 <label>Your Name</label>
                 <input type="text" name="from_name" placeholder="John Doe" required />

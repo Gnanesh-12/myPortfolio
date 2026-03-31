@@ -368,7 +368,7 @@ nav a.active::after {
 /* Projects & Certs Cards Grid */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -507,6 +507,12 @@ nav a.active::after {
   gap: 2rem;
 }
 
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -602,6 +608,10 @@ footer .highlight {
     grid-template-columns: 1fr;
   }
 
+  .contact-form-row {
+    grid-template-columns: 1fr;
+  }
+
   .timeline-item span.date {
     position: static;
     display: inline-block;
@@ -618,6 +628,15 @@ footer .highlight {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 50%;
+    /* Scales everything down seamlessly */
+  }
+
+  .section {
+    padding: 6rem 5% 3rem 5%;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -640,5 +659,26 @@ footer .highlight {
 
   .section-title {
     font-size: 3.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .glass-panel {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 45%;
+    /* Ultra scale down for tiny phones */
+  }
+
+  .typing-text {
+    white-space: normal !important;
+    /* Allow wrapping on very tiny screens */
+  }
+
+  .home-content .text-content h1 span {
+    white-space: normal !important;
   }
 }
