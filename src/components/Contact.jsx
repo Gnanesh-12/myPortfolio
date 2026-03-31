@@ -1,14 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, Mail, MapPin, Send, CheckCircle, XCircle } from "lucide-react";
 import "../index.css";
 
 function Contact() {
   const form = useRef();
+  const [status, setStatus] = useState(null); // 'sending', 'success', 'error'
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setStatus("sending");
 
     emailjs
       .sendForm(
@@ -19,11 +21,15 @@ function Contact() {
       )
       .then(
         () => {
-          alert("✅ Message sent successfully!");
+          setStatus("success");
           form.current.reset();
+          // Hide message after 5 seconds
+          setTimeout(() => setStatus(null), 5000);
         },
         (error) => {
-          alert("❌ Something went wrong: " + error.text);
+          console.error("Emailjs error:", error);
+          setStatus("error");
+          setTimeout(() => setStatus(null), 5000);
         }
       );
   };
@@ -120,9 +126,50 @@ function Contact() {
               <textarea name="message" placeholder="Hello, I'd like to talk about..." required></textarea>
             </div>
 
-            <button className="btn-primary" type="submit" style={{ alignSelf: "flex-start", marginTop: "1rem" }}>
-              <Send size={18} /> Send Message
+            <button
+              className="btn-primary"
+              type="submit"
+              style={{ alignSelf: "flex-start", marginTop: "1rem" }}
+              disabled={status === "sending"}
+            >
+              <Send size={18} /> {status === "sending" ? "Sending..." : "Send Message"}
             </button>
+
+            {/* Inline Notifications */}
+            <AnimatePresence>
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  style={{
+                    display: "flex", alignItems: "center", gap: "1rem",
+                    color: "#10b981", marginTop: "1rem", fontSize: "1.4rem",
+                    padding: "1.2rem 1.5rem", background: "rgba(16, 185, 129, 0.1)",
+                    borderRadius: "8px", border: "1px solid rgba(16, 185, 129, 0.2)"
+                  }}
+                >
+                  <CheckCircle size={20} />
+                  <span>Message sent successfully! I'll get back to you soon.</span>
+                </motion.div>
+              )}
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  style={{
+                    display: "flex", alignItems: "center", gap: "1rem",
+                    color: "#ef4444", marginTop: "1rem", fontSize: "1.4rem",
+                    padding: "1.2rem 1.5rem", background: "rgba(239, 68, 68, 0.1)",
+                    borderRadius: "8px", border: "1px solid rgba(239, 68, 68, 0.2)"
+                  }}
+                >
+                  <XCircle size={20} />
+                  <span>Something went wrong. Please try again or email me directly.</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </form>
         </motion.div>
       </div>

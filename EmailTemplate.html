@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Contact Form Submission</title>
+</head>
+
+<body
+  style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f3f4f6; margin: 0; padding: 40px 20px; color: #374151;">
+
+  <div
+    style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e5e7eb;">
+
+    <!-- Header Section -->
+    <div style="background: linear-gradient(135deg, #10b981 0%, #047857 100%); padding: 35px 30px; text-align: center;">
+      <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700; letter-spacing: 0.5px;">New Portfolio
+        Inquiry</h1>
+      <p style="color: #d1fae5; margin: 10px 0 0 0; font-size: 16px; font-weight: 400;">You've received a new message
+        from your website</p>
+    </div>
+
+    <!-- Body Section -->
+    <div style="padding: 40px 30px;">
+
+      <!-- Submitter Details Card -->
+      <div
+        style="background-color: #f8fafc; border-left: 4px solid #10b981; padding: 25px; border-radius: 8px; margin-bottom: 35px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="padding-bottom: 12px; width: 30%;">
+              <span
+                style="font-size: 14px; color: #64748b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Name</span>
+            </td>
+            <td style="padding-bottom: 12px; width: 70%;">
+              <span style="font-size: 16px; color: #0f172a; font-weight: 500;">{{from_name}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-bottom: 12px;">
+              <span
+                style="font-size: 14px; color: #64748b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Email</span>
+            </td>
+            <td style="padding-bottom: 12px;">
+              <a href="mailto:{{from_email}}"
+                style="font-size: 16px; color: #10b981; text-decoration: none; font-weight: 500;">{{from_email}}</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span
+                style="font-size: 14px; color: #64748b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Subject</span>
+            </td>
+            <td>
+              <span style="font-size: 16px; color: #0f172a; font-weight: 500;">{{subject}}</span>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <!-- Message Content -->
+      <div>
+        <h3
+          style="color: #0f172a; font-size: 18px; margin: 0 0 15px 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;">
+          Message Content</h3>
+        <div
+          style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; color: #334155; font-size: 16px; line-height: 1.7; white-space: pre-wrap; font-family: inherit;">
+          {{message}}</div>
+      </div>
+
+      <!-- Call to Action -->
+      <div style="text-align: center; margin-top: 35px;">
+        <a href="mailto:{{from_email}}?subject=Re: {{subject}}"
+          style="display: inline-block; background-color: #10b981; color: #ffffff; text-decoration: none; padding: 12px 28px; border-radius: 50px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.25);">Reply
+          to {{from_name}}</a>
+      </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div style="background-color: #f1f5f9; padding: 25px; text-align: center; border-top: 1px solid #e2e8f0;">
+      <p style="margin: 0; color: #64748b; font-size: 13px;">This email was sent securely from your React Portfolio
+        Contact Form.</p>
+      <p style="margin: 8px 0 0 0; color: #94a3b8; font-size: 12px;">© Gnanesh's Portfolio Dashboard • You can reply
+        directly to this email.</p>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
