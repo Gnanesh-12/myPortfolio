@@ -1,50 +1,66 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import "../index.css";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const toggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
-    if (toggle && navMenu) {
-      const handleClick = () => {
-        navMenu.classList.toggle("active");
-        const expanded = toggle.getAttribute("aria-expanded") === "true";
-        toggle.setAttribute("aria-expanded", !expanded);
-      };
-
-      toggle.addEventListener("click", handleClick);
-      return () => toggle.removeEventListener("click", handleClick);
-    }
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Education", href: "#education" },
+    { name: "Projects", href: "#projects" },
+    { name: "Certificates", href: "#certificates" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <header id="header">
+    <motion.header
+      id="header"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      style={{
+        background: scrolled ? "rgba(3, 7, 18, 0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "blur(0px)",
+        borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.08)" : "none",
+        boxShadow: scrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
+      }}
+    >
       <a href="#home" className="logo" id="logo">
         <span className="highlight">G</span>nanesh{" "}
         <span className="highlight">K</span>handavilli.
       </a>
 
-      <div
-        id="menu-toggle"
-        className="menu-toggle"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        ☰
+      <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <X size={28} /> : <Menu size={28} />}
       </div>
 
-      <nav id="nav-menu">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
+      <nav className={`nav-menu ${isOpen ? "active" : ""}`} style={{ left: isOpen ? '0' : '-100%' }}>
+        {navLinks.map((link, index) => (
+          <motion.a
+            key={index}
+            href={link.href}
+            onClick={() => setIsOpen(false)}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {link.name}
+          </motion.a>
+        ))}
       </nav>
-    </header>
+    </motion.header>
   );
 }
 
