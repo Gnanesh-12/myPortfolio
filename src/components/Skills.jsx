@@ -35,7 +35,7 @@ function Skills() {
 
   return (
     <section id="skills" className="section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -45,8 +45,8 @@ function Skills() {
       </motion.h2>
 
       <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
-        <motion.div 
-          className="glass-panel" 
+        <motion.div
+          className="glass-panel"
           style={{ padding: "4rem", textAlign: "center" }}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -76,8 +76,8 @@ function Skills() {
                 style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4rem' }}
               >
                 {skillsData[activeTab].map((skill, idx) => (
-                  <motion.div 
-                    key={skill.name} 
+                  <motion.div
+                    key={skill.name}
                     className="skill-item"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}

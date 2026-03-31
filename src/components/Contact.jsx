@@ -12,10 +12,10 @@ function Contact() {
 
     emailjs
       .sendForm(
-        "service_gnanesh",    
-        "template_3yhb0xi",   
+        "service_gnanesh",
+        "template_3yhb0xi",
         form.current,
-        "83uv0IvcS4tpke3bP"     
+        "83uv0IvcS4tpke3bP"
       )
       .then(
         () => {
@@ -30,7 +30,7 @@ function Contact() {
 
   return (
     <section id="contact" className="section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -41,7 +41,7 @@ function Contact() {
 
       <div className="contact-wrapper">
         {/* Left Side */}
-        <motion.div 
+        <motion.div
           className="contact-info"
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -51,7 +51,7 @@ function Contact() {
           <div style={{ marginBottom: "2rem" }}>
             <h2 style={{ fontSize: "3rem", marginBottom: "1rem" }}>Let's Connect</h2>
             <p style={{ color: "var(--text-secondary)", fontSize: "1.8rem" }}>
-              I'm actively seeking opportunities, projects, and collaborations. 
+              I'm actively seeking opportunities, projects, and collaborations.
               Feel free to reach out to me!
             </p>
           </div>
@@ -90,7 +90,7 @@ function Contact() {
         </motion.div>
 
         {/* Right Side (Form) */}
-        <motion.div 
+        <motion.div
           className="glass-panel contact-form"
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -109,17 +109,17 @@ function Contact() {
                 <input type="email" name="from_email" placeholder="john@example.com" required />
               </div>
             </div>
-            
+
             <div className="form-group">
               <label>Subject</label>
               <input type="text" name="subject" placeholder="Project inquiry..." required />
             </div>
-            
+
             <div className="form-group">
               <label>Message</label>
               <textarea name="message" placeholder="Hello, I'd like to talk about..." required></textarea>
             </div>
-            
+
             <button className="btn-primary" type="submit" style={{ alignSelf: "flex-start", marginTop: "1rem" }}>
               <Send size={18} /> Send Message
             </button>

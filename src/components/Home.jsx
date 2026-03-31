@@ -39,11 +39,11 @@ function Home() {
             Hello Connections,
           </motion.h1>
           <motion.h1 variants={itemVariants}>
-            I'm <span className="highlight">GNANESH KHANDAVILLI</span>
+            I'm <span className="highlight" style={{ whiteSpace: "nowrap" }}>GNANESH KHANDAVILLI</span>
           </motion.h1>
-          
-          <motion.p variants={itemVariants} className="typing-text">
-            Full-Stack Developer & Innovator
+
+          <motion.p variants={itemVariants} className="typing-text" style={{ whiteSpace: "nowrap" }}>
+            Full-Stack Developer
           </motion.p>
 
           <motion.div className="social-media" variants={itemVariants}>

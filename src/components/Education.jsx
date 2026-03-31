@@ -18,7 +18,7 @@ function Education() {
       id: "inter",
       logo: "https://files.prokerala.com/education/imgs/logo/college/sri-chaitanya-degree-college-chityal-44295.jpg",
       title: "Intermediate XI & XII - MPC",
-      institution: "Sri Chaitanya",
+      institution: "Sri Chaitanya Junior Kalasala",
       grade: "936 / 1000",
       extra: "JEE Mains Percentile - 95.86",
       date: "2021 – 2023",
@@ -31,7 +31,7 @@ function Education() {
       id: "school",
       logo: "https://slateschool.in/wp-content/uploads/2023/10/slate-logo.png",
       title: "Class X",
-      institution: "Slate School",
+      institution: "Slate-The School",
       grade: "10.0 / 10.0",
       date: "2021",
       links: [
@@ -42,7 +42,7 @@ function Education() {
 
   return (
     <section id="education" className="section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -53,7 +53,7 @@ function Education() {
 
       <div className="timeline">
         {eduData.map((item, index) => (
-          <motion.div 
+          <motion.div
             key={item.id}
             className="timeline-item glass-panel"
             initial={{ opacity: 0, x: -30 }}
@@ -65,12 +65,12 @@ function Education() {
             <div style={{ width: "90px", height: "90px", flexShrink: 0, background: "#fff", borderRadius: "10px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <img src={item.logo} alt={item.institution} style={{ width: "90%", objectFit: "contain" }} loading="lazy" />
             </div>
-            
+
             <div style={{ flex: 1, minWidth: "250px" }}>
               <h3 style={{ display: "flex", alignItems: "center", gap: "1rem", margin: 0, marginBottom: "1rem" }}>
                 <GraduationCap size={24} /> {item.title}
               </h3>
-              
+
               <div style={{ marginBottom: "1rem", display: "flex" }}>
                 <span className="date">{item.date}</span>
               </div>

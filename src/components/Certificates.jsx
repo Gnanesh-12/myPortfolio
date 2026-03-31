@@ -6,7 +6,7 @@ import "../index.css";
 function Certificates() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.2 }
     }
@@ -19,7 +19,7 @@ function Certificates() {
 
   return (
     <section id="certificates" className="section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -28,7 +28,7 @@ function Certificates() {
         <span className="highlight">C</span>ertificates
       </motion.h2>
 
-      <motion.div 
+      <motion.div
         className="grid-container"
         variants={containerVariants}
         initial="hidden"

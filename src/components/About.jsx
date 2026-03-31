@@ -6,7 +6,7 @@ import aboutImg from "../assets/about.jpeg";
 function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.3 }
     }
@@ -19,7 +19,7 @@ function About() {
 
   return (
     <section id="about" className="section">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -28,7 +28,7 @@ function About() {
         <span className="highlight">A</span>bout Me
       </motion.h2>
 
-      <motion.div 
+      <motion.div
         className="about-container"
         variants={containerVariants}
         initial="hidden"

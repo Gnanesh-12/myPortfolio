@@ -6,13 +6,13 @@ function Footer() {
   return (
     <footer className="glass-panel" style={{ margin: "5rem 2rem 2rem 2rem", background: "rgba(3,7,18,0.8)" }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "5rem", justifyContent: "space-between", maxWidth: "1200px", margin: "0 auto", paddingBottom: "3rem" }}>
-        
+
         {/* About Column */}
         <div style={{ flex: "2", minWidth: "300px" }}>
           <h3 style={{ fontSize: "2rem", marginBottom: "1.5rem" }}><span className="highlight">G</span>nanesh</h3>
           <p style={{ color: "var(--text-secondary)", marginBottom: "2rem", maxWidth: "400px" }}>
             Computer Science Engineering Student passionate about technology,
-            innovation, and creating impactful solutions. Actively seeking opportunities 
+            innovation, and creating impactful solutions. Actively seeking opportunities
             in full-stack development.
           </p>
           <div className="social-media" style={{ margin: 0, gap: "1rem" }}>
@@ -32,10 +32,10 @@ function Footer() {
         <div style={{ flex: "1", minWidth: "150px" }}>
           <h4 style={{ fontSize: "1.8rem", marginBottom: "1.5rem" }}>Quick Links</h4>
           <ul style={{ display: "flex", flexDirection: "column", gap: "1rem", color: "var(--text-secondary)" }}>
-            <li><a href="#about" style={{ transition: "color 0.3s" }} onMouseOver={e=>e.target.style.color="var(--accent-primary)"} onMouseOut={e=>e.target.style.color=""}>About</a></li>
-            <li><a href="#skills" style={{ transition: "color 0.3s" }} onMouseOver={e=>e.target.style.color="var(--accent-primary)"} onMouseOut={e=>e.target.style.color=""}>Skills</a></li>
-            <li><a href="#projects" style={{ transition: "color 0.3s" }} onMouseOver={e=>e.target.style.color="var(--accent-primary)"} onMouseOut={e=>e.target.style.color=""}>Projects</a></li>
-            <li><a href="#contact" style={{ transition: "color 0.3s" }} onMouseOver={e=>e.target.style.color="var(--accent-primary)"} onMouseOut={e=>e.target.style.color=""}>Contact</a></li>
+            <li><a href="#about" style={{ transition: "color 0.3s" }} onMouseOver={e => e.target.style.color = "var(--accent-primary)"} onMouseOut={e => e.target.style.color = ""}>About</a></li>
+            <li><a href="#skills" style={{ transition: "color 0.3s" }} onMouseOver={e => e.target.style.color = "var(--accent-primary)"} onMouseOut={e => e.target.style.color = ""}>Skills</a></li>
+            <li><a href="#projects" style={{ transition: "color 0.3s" }} onMouseOver={e => e.target.style.color = "var(--accent-primary)"} onMouseOut={e => e.target.style.color = ""}>Projects</a></li>
+            <li><a href="#contact" style={{ transition: "color 0.3s" }} onMouseOver={e => e.target.style.color = "var(--accent-primary)"} onMouseOut={e => e.target.style.color = ""}>Contact</a></li>
           </ul>
         </div>
 

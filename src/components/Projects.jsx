@@ -6,7 +6,7 @@ import "../index.css";
 function Projects() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.2 }
     }
@@ -19,7 +19,7 @@ function Projects() {
 
   return (
     <section className="section" id="projects">
-      <motion.h2 
+      <motion.h2
         className="section-title"
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -28,7 +28,7 @@ function Projects() {
         <span className="highlight">P</span>rojects
       </motion.h2>
 
-      <motion.div 
+      <motion.div
         className="grid-container"
         variants={containerVariants}
         initial="hidden"
@@ -46,14 +46,14 @@ function Projects() {
             the wall or itself. Demonstrates embedded game development,
             IR signal decoding, and real-time display updates.
           </p>
-          
+
           <div className="tags">
             <span className="tag">Arduino</span>
             <span className="tag">C</span>
             <span className="tag">IR Remote</span>
             <span className="tag">LCD Display</span>
           </div>
-          
+
           <div className="project-links">
             <a href="https://github.com/Gnanesh-12/Snake_Game_Arduino" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i> Source Code
@@ -70,17 +70,17 @@ function Projects() {
           <p>
             Built a simple web-based tool that helps students track and manage
             their class attendance. By entering the number of classes attended
-            and the total number of classes, along with a required percentage, 
-            the app calculates whether the student can afford to miss future classes. 
+            and the total number of classes, along with a required percentage,
+            the app calculates whether the student can afford to miss future classes.
             It provides a descriptive textual summary and an intuitive pie chart visualization.
           </p>
-          
+
           <div className="tags">
             <span className="tag">HTML</span>
             <span className="tag">CSS</span>
             <span className="tag">JavaScript</span>
           </div>
-          
+
           <div className="project-links">
             <a href="https://github.com/Gnanesh-12/-Attendance-percentage-calculator" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i> Source Code
