@@ -84,7 +84,7 @@ function Contact() {
         </motion.div>
 
         {/* Right Side: Clean Form */}
-        <motion.div variants={fadeUp} className="panel">
+        <motion.div variants={fadeUp}>
           <form ref={form} onSubmit={sendEmail} className="flex-column gap-2">
             <div className="form-group">
               <label>Name</label>

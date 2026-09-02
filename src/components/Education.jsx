@@ -58,7 +58,7 @@ function Education() {
         Education
       </motion.h2>
 
-      <div className="education-container">
+      <div className="timeline">
         {eduData.map((item) => (
           <motion.div
             key={item.id}
@@ -66,35 +66,36 @@ function Education() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUp}
-            className="education-item"
+            className="timeline-item"
           >
-            <div className="education-header">
-              <h3 className="education-title">
+            <div className="timeline-date">
+              {item.date}
+            </div>
+            
+            <div className="timeline-content">
+              <h3 className="timeline-title">
                 {item.title}
               </h3>
-              <span className="education-date">
-                {item.date}
-              </span>
-            </div>
-            
-            <h4 className="education-institution">
-              {item.institution}
-            </h4>
-            
-            <div className="education-grade">
-              <p>Grade: {item.grade}</p>
-              {item.extra && <p>{item.extra}</p>}
-            </div>
-
-            {item.links.length > 0 && (
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
-                {item.links.map((link, i) => (
-                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="btn-outline">
-                    <FileText size={14} /> {link.label}
-                  </a>
-                ))}
+              
+              <h4 className="timeline-inst">
+                {item.institution}
+              </h4>
+              
+              <div className="text-secondary" style={{ marginTop: '1rem' }}>
+                <p>Grade: {item.grade}</p>
+                {item.extra && <p>{item.extra}</p>}
               </div>
-            )}
+
+              {item.links.length > 0 && (
+                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
+                  {item.links.map((link, i) => (
+                    <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '0.8rem 1.6rem' }}>
+                      <FileText size={14} /> {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>

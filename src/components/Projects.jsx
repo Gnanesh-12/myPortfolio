@@ -84,7 +84,7 @@ function Projects() {
         Selected Work
       </motion.h2>
 
-      <div className="projects-container">
+      <div className="editorial-list">
         {projectsData.map((project, idx) => (
           <motion.div
             key={idx}
@@ -92,35 +92,33 @@ function Projects() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUp}
-            className="project-card"
+            className="editorial-list-item"
           >
-            <div className="project-header">
+            <div className="project-meta">
               <h3 className="project-title">
                 {project.title}
               </h3>
               <div className="project-links">
                 {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link project-link-github">
-                    <i className="fab fa-github"></i> Code
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
+                    Code
                   </a>
                 )}
                 {project.demo && (
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link project-link-demo">
-                    <ExternalLink size={18} /> Live Site
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link">
+                    Live Site
                   </a>
                 )}
               </div>
             </div>
 
-            <div className="project-body">
+            <div className="project-desc-wrapper">
               <p className="project-description">
                 {project.description}
               </p>
               
-              <div className="tags">
-                {project.tags.map(tag => (
-                  <span key={tag} className="tag">{tag}</span>
-                ))}
+              <div className="text-muted" style={{ fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                {project.tags.join(" • ")}
               </div>
             </div>
           </motion.div>

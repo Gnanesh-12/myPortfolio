@@ -5,7 +5,7 @@ import "../index.css";
 function Footer() {
   return (
     <footer>
-      <div className="footer-top">
+      <div className="footer-grid">
         
         {/* About Column */}
         <div className="footer-brand">

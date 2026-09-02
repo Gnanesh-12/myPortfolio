@@ -44,7 +44,7 @@ function Certificates() {
         Certificates
       </motion.h2>
 
-      <div className="certificates-container">
+      <div className="timeline">
         {certData.map((cert, index) => (
           <motion.div
             key={index}
@@ -52,26 +52,30 @@ function Certificates() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUp}
-            className="panel project-card"
+            className="timeline-item"
           >
-            <div className="project-header">
-              <div>
-                <h3 className="project-title">{cert.title}</h3>
-                <p className="education-date">{cert.issuer} &bull; {cert.date}</p>
-              </div>
-              <a href={cert.link} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: "0.8rem", borderRadius: "4px" }}>
-                <ExternalLink size={18} />
-              </a>
+            <div className="timeline-date">
+              {cert.date}
             </div>
+            
+            <div className="timeline-content">
+              <div className="flex-between">
+                <div>
+                  <h3 className="timeline-title">{cert.title}</h3>
+                  <h4 className="timeline-inst" style={{ marginTop: '0.5rem' }}>{cert.issuer}</h4>
+                </div>
+                <a href={cert.link} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition" style={{ padding: '0.5rem' }}>
+                  <ExternalLink size={20} />
+                </a>
+              </div>
 
-            <p className="project-description">
-              {cert.description}
-            </p>
+              <p className="project-description" style={{ marginTop: '1rem' }}>
+                {cert.description}
+              </p>
 
-            <div className="tags">
-              {cert.tags.map(tag => (
-                <span key={tag} className="tag">{tag}</span>
-              ))}
+              <div className="text-muted" style={{ fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '1rem' }}>
+                {cert.tags.join(" • ")}
+              </div>
             </div>
           </motion.div>
         ))}

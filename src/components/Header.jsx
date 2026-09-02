@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 import "../index.css";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,21 +38,31 @@ function Header() {
         Gnanesh.
       </a>
 
-      <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </div>
+      <div className="nav-actions">
+        <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
 
-      <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
-        {navLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            onClick={() => setIsOpen(false)}
-          >
-            {link.name}
-          </a>
-        ))}
-      </nav>
+        <button 
+          className="theme-toggle" 
+          onClick={toggleTheme} 
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+
+        <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </div>
+      </div>
     </motion.header>
   );
 }

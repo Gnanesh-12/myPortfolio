@@ -34,7 +34,7 @@ function Skills() {
       </motion.h2>
 
       <motion.div
-        className="skills-container"
+        className="skills-grid"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -50,7 +50,7 @@ function Skills() {
             </h3>
             <ul className="skill-list">
               {skills.map((skill) => (
-                <li key={skill} className="tag">
+                <li key={skill}>
                   {skill}
                 </li>
               ))}
