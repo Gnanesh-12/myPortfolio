@@ -684,7 +684,7 @@ footer {
 
   .hero-image-wrap {
     max-width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/5;
     justify-self: start;
   }
 }
