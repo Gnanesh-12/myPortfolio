@@ -538,6 +538,17 @@ footer {
   margin-bottom: 2rem;
 }
 
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.footer-social a:hover {
+  color: var(--text-primary);
+}
+
 .footer-bottom {
   display: flex;
   flex-direction: column;

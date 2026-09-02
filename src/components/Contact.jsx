@@ -35,9 +35,9 @@ function Contact() {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
@@ -45,7 +45,7 @@ function Contact() {
   return (
     <section id="contact" className="section">
       <motion.div
-        className="contact-grid"
+        className="contact-layout"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
