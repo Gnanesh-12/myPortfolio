@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer-grid">
-        
+
         {/* About Column */}
         <div className="footer-brand">
           <h3>Gnanesh Khandavilli</h3>
@@ -33,6 +33,7 @@ function Footer() {
           <ul className="footer-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
