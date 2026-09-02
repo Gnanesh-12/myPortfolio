@@ -4,67 +4,70 @@ import "../index.css";
 import aboutImg from "../assets/about.jpeg";
 
 function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.3 }
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   return (
     <section id="about" className="section">
       <motion.h2
         className="section-title"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
       >
-        <span className="highlight">A</span>bout Me
+        About
       </motion.h2>
 
       <motion.div
-        className="about-container"
-        variants={containerVariants}
+        className="about-grid"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+        }}
       >
-        <motion.div className="about-img-box" variants={itemVariants}>
-          <div className="glass-panel" style={{ padding: "1rem" }}>
+        {/* Left Side: Editorial Typography */}
+        <motion.div variants={fadeUp} className="flex-column gap-3 text-secondary">
+          <p className="project-description">
+            I am a full-stack developer and embedded systems enthusiast driven by a deep curiosity for how complex systems operate. I find immense satisfaction in bridging the gap between low-level hardware constraints and high-level, user-centric web applications.
+          </p>
+          <p className="project-description">
+            My approach to engineering is simple: build robustly, design minimally, and prioritize performance. Whether I am architecting a secure voting system using microservices or developing a real-time health monitoring device with an STM32 microcontroller, I remain focused on delivering practical, scalable solutions.
+          </p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", borderTop: "1px solid var(--border-subtle)", paddingTop: "3rem" }}>
+            <div>
+              <h3 className="text-primary" style={{ fontSize: "1.4rem", marginBottom: "0.5rem" }}>Focus</h3>
+              <p style={{ fontSize: "1.5rem" }}>Full-Stack & Mobile Application</p>
+            </div>
+            <div>
+              <h3 className="text-primary" style={{ fontSize: "1.4rem", marginBottom: "0.5rem" }}>Based in</h3>
+              <p style={{ fontSize: "1.5rem" }}>Hyderabad, India</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Side: Clean Image Integration */}
+        <motion.div variants={fadeUp}>
+          <div className="profile-img-wrap" style={{ maxWidth: "100%", aspectRatio: "3/4" }}>
             <img
               src={aboutImg}
-              alt="Gnanesh Khandavilli formal"
+              alt="Gnanesh Khandavilli"
+              className="profile-img"
               loading="lazy"
             />
           </div>
         </motion.div>
 
-        <motion.div className="about-text glass-panel" variants={itemVariants} style={{ padding: "4rem" }}>
-          <p>
-            Hi, I'm Gnanesh Khandavilli. I am a passionate technologist who
-            thrives on learning new concepts and finding creative solutions to
-            complex problems. My primary interest lies in full-stack
-            development. I find immense satisfaction in bridging the gap
-            between front-end interfaces and back-end architecture, watching
-            individual components seamlessly come together to form impactful,
-            user-centric applications.
-          </p>
-          <p style={{ marginBottom: 0 }}>
-            Driven by a commitment to continuous growth, I actively explore
-            emerging frameworks, tools, and best practices to refine my skill
-            set. Whether collaborating within a team to exchange ideas or
-            working independently to overcome a technical challenge, I remain
-            focused and adaptable. My ultimate goal is to evolve continuously
-            as a developer and build meaningful digital products that drive a
-            positive impact.
-          </p>
-        </motion.div>
       </motion.div>
     </section>
   );
